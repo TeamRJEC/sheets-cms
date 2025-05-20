@@ -27,3 +27,20 @@ The content on the index page is rendered via the `src/Sheets.astro` component. 
 ```astro
 "https://opensheet.elk.sh/[GOOGLESHEET-ID-HERE]/1"
 ```
+
+## Deployment
+
+1. Sign in to [Cloudflare Pages](https://pages.cloudflare.com/) and create a new project.
+2. Connect your GitHub account and authorize access to this repository.
+3. Select **sheets-cms** as the project repository.
+4. Use the default build command `npm run build` and set the build output directory to `dist`.
+5. Save the configuration to trigger the initial build and deployment.
+
+### Running the GitHub Actions workflow
+
+A GitHub Actions workflow builds the site whenever you push to the main branch. To run it manually, open the **Actions** tab on GitHub and choose **Run workflow**.
+
+### Environment variables
+
+If your project requires environment variables, add them under **Project Settings → Environment Variables** in Cloudflare Pages. They will be available during the build step executed by GitHub Actions.
+
