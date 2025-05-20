@@ -5,32 +5,22 @@ const response = await fetch(
 const data = await response.json();
 ---
 
-<section>
-  <h3>Chicken</h3>
-  <div>
-    {
-      data
-        .filter((dinner) => dinner.type === "Chicken")
-        .map((dinner) => (
-          <div>
-            <div>
-              <p>{dinner.name}</p>
-              <div>
-                <div>
-                  <span>Time: {dinner.time}</span>
-                  <br />
-                  <span>Goes for {dinner.lasts} nights</span>
-                  {dinner.instructions && (
-                    <details>
-                      <summary>Instructions</summary>
-                      <p>{dinner.instructions}</p>
-                    </details>
-                  )}
-                </div>
-              </div>
-            </div>
-          </div>
-        ))
-    }
-  </div>
+<section class="container">
+  <h2>Chicken Dinners</h2>
+  {
+    data
+      .filter((dinner) => dinner.type === "Chicken")
+      .map((dinner) => (
+        <div class="card">
+          <h3>{dinner.name}</h3>
+          <p class="meta">Time: {dinner.time} · {dinner.lasts} nights</p>
+          {dinner.instructions && (
+            <details>
+              <summary>Instructions</summary>
+              <p>{dinner.instructions}</p>
+            </details>
+          )}
+        </div>
+      ))
+  }
 </section>
